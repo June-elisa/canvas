@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>处理图像</title>
+	</head>
+	<body>
+		<!-- 
+			集合了65000张手写的数字图片
+			784 = 28 * 28
+		 -->
+		<!-- 显示所有内容的图片 -->
+		<canvas id="c1" width="784" height="6500"></canvas>
+		<!-- 显示数字图片 -->
+		<canvas id="c2" width="600" height="600"></canvas>
+
+		<script type="text/javascript">
+			var c1 = document.querySelector("#c1")
+			var c2 = document.querySelector("#c2")
+
+			var c1Ctx = c1.getContext('2d')
+			var c2Ctx = c2.getContext('2d')
+
+			var img = new Image()
+			img.src = "./img/mnist_images.png"
+
+			img.onload = function() {
+				c1Ctx.drawImage(img, 100, 100)
+
+				var imgData = c1Ctx.getImageData(0, 0, 784, 1)
+				var imgData2 = c2Ctx.createImageData(28,28)
+				
+				for(var i = 0;i<784*4;i++){
+					imgData2.data[i] = imgData.data[i]
+				}
+				console.log(imgData2)
+				console.log(imgData)
+				c2Ctx.putImageData(imgData2, 0, 0, 0, 0, 28, 28)
+				// c2Ctx.drawImage(img, 0, 0)
+
+			}
+		</script>
+	</body>
+</html>

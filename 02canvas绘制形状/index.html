@@ -1,0 +1,53 @@
+<!--
+ * @Desc: 
+ * @Author: xuelianYi
+ * @Date: 2021-09-26 11:12:26
+ * @LastEditors: xuelianYi
+ * @LastEditTime: 2021-09-26 11:38:04
+ * @FilePath: \canvas\02canvas绘制形状\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script>
+        var canvas1 = document.getElementById("canvas")
+        var ctx = canvas1.getContext("2d");
+
+        // 起始点
+        ctx.beginPath();
+        // 设置开始路径
+        ctx.moveTo(50, 50)
+        // 设置经过某个位置
+        ctx.lineTo(50, 300)
+        ctx.lineTo(300, 100)
+        ctx.lineTo(300, 200)
+        // 设置结束路径
+        ctx.closePath()
+
+
+        // 绘制路径
+        ctx.lineCap = "round" // 起始路径的线段 边缘设置为圆角
+        // ctx.lineJoin = "round"; // 拐角设置为圆角
+        ctx.miterLimit = 2 // 设置最大斜接长度
+        ctx.strokeStyle = "skyblue"
+        ctx.lineWidth = 10
+        ctx.stroke()
+
+        // 填充
+        ctx.fillStyle = "pink"
+        // ctx.fill()
+
+    </script>
+</body>
+
+</html>

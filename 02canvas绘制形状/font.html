@@ -1,0 +1,50 @@
+<!--
+ * @Desc: 
+ * @Author: xuelianYi
+ * @Date: 2021-09-26 11:53:51
+ * @LastEditors: xuelianYi
+ * @LastEditTime: 2021-09-26 17:38:13
+ * @FilePath: \canvas\02canvas绘制形状\font.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.font = "50px 微软雅黑"
+
+        // 设置阴影
+        ctx.shadowBlur = 5;
+        ctx.shadowColor = "rgba(0,0,0,1)";
+        ctx.shadowOffsetX = 10;
+        ctx.shadowOffsetY = 0;
+
+        var x = 600;
+        setInterval(function () {
+            // 清空画布
+            ctx.clearRect(0, 0, 600, 600)
+            x -= 3;
+            if (x < -100) {
+                x = 600
+            }
+
+            ctx.fillText('hello world!', x, 100)
+            ctx.strokeText("中午吃啥?", x, 200)
+        }, 16)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!--
+ * @Desc: 
+ * @Author: xuelianYi
+ * @Date: 2021-09-26 16:02:56
+ * @LastEditors: xuelianYi
+ * @LastEditTime: 2021-09-27 14:47:31
+ * @FilePath: \canvas\03绘制图像\index.html
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<canvas id="canvas" width="600" height="600"></canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector('#canvas')
+		var ctx = canvas.getContext('2d')
+
+		// 绘制图像
+		// ctx.drawImage(图片对象，x位置,y位置)
+		// ctx.drawImage(图片对象，x位置,y位置,宽度，高度)
+		// ctx.drawImage(图片对象，图片裁剪的位置x,图片裁剪的位置y,裁剪的宽度,裁剪的高度,x位置,y位置,宽度，高度)
+		var img = new Image()
+		img.src = "img/poppy.png"
+
+		var img2 = new Image()
+		img2.src = "img/biqibao.jpg"
+
+		img.onload = function () {
+			ctx.drawImage(img, 50, 50)
+		}
+
+		img2.onload = function () {
+			ctx.drawImage(img2, 150, 0, 150, 100, 50, 50, 300, 300)
+			ctx.font = "30px 微软雅黑"
+			ctx.fillText("新之助打码", 50, 550)
+		}
+
+
+	</script>
+</body>
+
+</html>
